@@ -10,39 +10,54 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-@RunWith(Parameterized.class)
+@RunWith(value = Parameterized.class)
 public class ArrayListTest 
 {
 	
-	    @Parameters
-	    public static Collection<Object[]> data() {
-	        return Arrays.asList(new Object[][] {     
-	                 {  new int[]{}, new int[]{} }, 
-	                 {  new int[]{0}, new int[]{0} },
-	                 {  new int[]{1}, new int[]{1} },
-	                 { 2, 1 },
-	                 { 5, 2 }	                   
+	    @Parameters(name = "{index}: testAdd")
+	    public static Collection<Object[]> data()
+	    {
+	        return Arrays.asList(new Object[][]
+	        	{     
+	                 {  new int[]{}, 1, new int[]{1} }, 
+	                 {  new int[]{0}, 2, new int[]{0} },
+	                 {  new int[]{1}, 3, new int[]{1} },
+                   
 	           });
 	    }
 
 	    private int[] expAlist;
-
+	    private int val;
 	    private int[] actAlist;
 
-	    public ArrayListTest(int[] expAlist, int[] actAlist) {
+	    public ArrayListTest(int[] expAlist, int val, int[] actAlist) 
+	    {
 	        this.expAlist = expAlist;
+	        this.val = val;
 	        this.actAlist = actAlist;
 	    }
 	
 	// nugen init - для передачи массива and toArray - для возвращения результата
 	//
 	
-	public void addTest ()
+	@Test
+	public void addTest1 ()
 	{
 	   	myArrayList act = new myArrayList();
-	   	act.addStart(1);
+	   	act.addStart(val);
 	   	assertArrayEquals(expAlist, act.toArray());
 	}
 	
 
+		@Test
+		public void addTest2 ()
+		{
+		   	myArrayList act = new myArrayList();
+		   	act.addStart(val);
+		   	assertArrayEquals(expAlist, act.toArray());
+		}
+	
+	
 }
+
+
