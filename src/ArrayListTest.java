@@ -1,5 +1,7 @@
 
 
+import static org.junit.Assert.assertArrayEquals;
+
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -37,9 +39,9 @@ public class ArrayListTest
 	
 	public void addTest ()
 	{
-	   	int[] exp = { -1, 0, 1, 4, 11, 15 };
-    	int act = AR.ArMaxElIndex(TestArray);
-    	assertArrayEquals(exp, act);
+	   	myArrayList act = new myArrayList();
+	   	act.addStart(1);
+	   	assertArrayEquals(expAlist, act.toArray());
 	}
 	
 
