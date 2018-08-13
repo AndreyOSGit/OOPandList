@@ -1,5 +1,6 @@
+import ListWithInteraface.Elist;
 
-class myArrayList 
+class myArrayList
 {
 	int[] ar;
 	public myArrayList()
@@ -19,6 +20,7 @@ class myArrayList
 	// Tests null, o , 1, 2 , many
 	public void init(int[] ini)
 	{
+		if (ini == null | ini.equals(new int[] {})) {throw new IllegalArgumentException("AAA"); }
 		ar = new int[ini.length];
 		for (int i = 0; i < ar.length ; i++)
 		{
@@ -51,13 +53,14 @@ class myArrayList
 		int[] buff = ar;
 		ar = new int[buff.length+1];
 		ar[ar.length-1] = val;
-		for (int i = 0; i < ar.length-1 ; i++)
+		for (int i = 0; i < ar.length ; i++)
 		{
 			ar[i] = buff[i];
 		} 
 	}
 	public void addPos(int pos, int val)
 	{
+		//if ( pos >= 0  and pos <=  ) {throw new IllegalArgumentException("AAA");}
 		int[] buff = ar;
 		ar = new int[buff.length+1];
 		ar[pos] = val;
@@ -67,10 +70,23 @@ class myArrayList
 		} 
 	}
 	
+//	void ADDend(int val)
+//	{
+//		
+//	//	ar[i++] = val;
+//	}
+//	
+//	
+//	void delEnd() 
+//	{
+//		if(i==0) {throw new IllegalArgumentException();}
+//		return ar[--index]
+//	}
 	}
 	
+
 	
-	
+	// Внутреннее хранилище равно числу хранимых элементов
 //	delPos // Значение удаляемого элемента
 // addPos - добавлет позицию смещая текущую
 // print - выводит в консоль
