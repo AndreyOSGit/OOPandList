@@ -2,23 +2,27 @@ package ListWithInteraface;
 
 public class AList1 implements Elist
 {
-
+	private int index;
 	int ar[];
+	
 	public AList1()
 	{
-		ar = new int[0];
+		ar = new int[30];
 	}
-	
+	public AList1(int initSize)
+	{
+		ar = new int[initSize];
+	}
 	@Override
 	public void clear() 
 	{
-		ar = null;
+		ar = new int[0];
 	}
 
 	@Override
 	public void init(int[] ini) {
 		if ( ini == null ) ini = new int[0];
-		for(int i =0; i<=ini.length; i++)
+		for(int i =0; i< ini.length; i++)
 		{
 			addEnd(ini[i]);
 		}
@@ -45,7 +49,7 @@ public class AList1 implements Elist
 	@Override
 	public void addEnd(int val)
 	{
-		ar[ar.length++] = val;
+		ar[index++] = val;
 	}
 
 	@Override
@@ -131,13 +135,15 @@ public class AList1 implements Elist
 	{
 		
 		String outString = "";
-		for (int i = 0; i < index; i++) 
-		{
-			outString += String.valueOf(ar[i]);	
-		}
+		for (int i = 0; i < ar.length; i++) 
+			{
+				outString += String.format("%d, ", ar[i]);
+			}
+		
+			outString = String.format("[%s]", outString);
+		return outString;
 
-		String formatedString = String.format("[%d, ]", outString);
-		return formatedString;						
+					
 	}
 
 }

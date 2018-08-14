@@ -4,45 +4,72 @@ public class AList0 implements Elist
 {
 	
 	int[] ar;
-	int index = ar.length;
+	int index = 0;
 	public AList0() 
 	{
 		ar = new int[0];
+		
 	}
 
 	@Override
 	public void clear() 
 	{
-		
+		ar = new int[0];
 	}
 
 	@Override
 	public void init(int[] ini) {
-		// TODO Auto-generated method stub
+
+		if (ini == null | ini.equals(new int[] {})) {throw new IllegalArgumentException("AAA"); }
+		index = ini.length;
+		ar = new int[ini.length];
+		for (int i = 0; i < ar.length ; i++)
+		{
+			ar[i] = ini[i];
+		}
 		
 	}
 
 	@Override
 	public int[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+		int[] outAr = new int[ar.length];
+		for (int i = 0; i < ar.length; i++)
+		{
+			outAr[i] = ar[i];
+		}
+		return outAr;
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+
+		return ar.length;
 	}
 
 	@Override
-	public void addStart(int val) {
-		// TODO Auto-generated method stub
+	public void addStart(int val) 
+	{
+		int[] buff = ar;
+		ar = new int[buff.length+1];
+		ar[0] = val;
+		for (int i = 1; i < ar.length ; i++)
+		{
+			ar[i] = buff[i];
+		} 
 		
 	}
 
 	@Override
-	public void addEnd(int val) {
-		// TODO Auto-generated method stub
+	public void addEnd(int val) 
+	{
+
+		int[] buff = ar;
+		ar = new int[buff.length+1];
+		ar[ar.length-1] = val;
+		for (int i = 0; i < ar.length ; i++)
+		{
+			ar[i] = buff[i];
+		} 
 		
 	}
 
@@ -50,6 +77,14 @@ public class AList0 implements Elist
 	public void addPos(int pos, int val) 
 	{
 		if (pos < 0 || pos >index-1 ) throw new IllegalArgumentException();
+
+				int[] buff = ar;
+				ar = new int[buff.length+1];
+				ar[pos] = val;
+				for (int i = 0; i < ar.length-1 ; i++)
+				{
+					ar[i] = buff[i];
+				}
 	}
 
 	@Override
@@ -60,8 +95,16 @@ public class AList0 implements Elist
 
 	@Override
 	public int delEnd() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+//		int[] buff = ar;
+//		ar = new int[buff.length+1];
+//		ar[pos] = val;
+//		for (int i = 0; i < ar.length-1 ; i++)
+//		{
+//			ar[i] = buff[i];
+//		}
+//}
+		return 1;
 	}
 
 	@Override
@@ -130,10 +173,12 @@ public class AList0 implements Elist
 	public String toString() 
 	{
 		String outString = "";
-		for (int i = 0; i < index; i++) 
-		{
-			outString += String.valueOf(ar[i]);	
-		}
+		for (int i = 0; i < ar.length; i++) 
+			{
+				outString += String.format("%d, ", ar[i]);
+			}
+		
+			outString = String.format("[%s]", outString);
 		return outString;		
 	}
 

@@ -3,7 +3,7 @@ package ListWithInteraface;
 public interface Elist 
 {
 	Elist list = null;
-	int index = 0;
+//	int index = 0;
 	//  в интерфейсе по дефолту все методы паблик
 	void  clear();
 	void  init(int[] ini);
