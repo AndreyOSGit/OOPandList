@@ -2,7 +2,7 @@ package ListWithInteraface;
 
 public class AList1 implements Elist
 {
-	private int index;
+	private int index = 0;
 	int ar[];
 	
 	public AList1()

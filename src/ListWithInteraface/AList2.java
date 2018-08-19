@@ -14,24 +14,23 @@ public class AList2 implements Elist
 	@Override
 	public void init(int[] ini) {
 		if ( ini == null ) ini = new int[0];
-		int h = ini.length/2;
+		start = ar.length/2;
 		
-		clear();
-		
-		
-//		int size = ini.length;
-//		start -= size/2;
-//		end = start = size;
-//		for (int i = 0; i < size; i++) 
-//		{
-//			ar[start + i] = ini[i];
-//		}
+		for (int i = 0; i < ini.length; i++)
+		{
+			ar[start + i] = ini[i];
+		}
+		end = start + ini.length;
 		
 	}
 	@Override
 	public int[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+        int[] ret = new int[size()];
+        for (int i = start; i < end; i++)
+        {
+            ret[i - start] = ar[i];
+        }
+return ret;
 	}
 	@Override
 	public int size() 
@@ -40,7 +39,7 @@ public class AList2 implements Elist
 	}
 	@Override
 	public void addStart(int val) {
-		// TODO Auto-generated method stub
+		 ar[--start] = val;
 		
 	}
 	@Override
@@ -50,47 +49,98 @@ public class AList2 implements Elist
 	}
 	@Override
 	public void addPos(int pos, int val) {
-		// TODO Auto-generated method stub
-		
+
+		if ((pos > end - start) || (pos < 0))
+		{
+			throw new IllegalArgumentException();
+		}
+		for (int i = end; i > start + pos; i--)
+		{
+			ar[i] = ar[i - 1];
+		}
+		end++;
+		ar[start + pos] = val;
+
 	}
 	@Override
 	public int delStart() {
-		// TODO Auto-generated method stub
-		return 0;
+		if (start == end)
+		{
+			throw new IllegalArgumentException();
+		}
+		start++;
+		return ar[start - 1];
 	}
 	@Override
 	public int delEnd() {
-		// TODO Auto-generated method stub
-		return 0;
+		 end--;
+		 return ar[end];
 	}
 	@Override
 	public int delPos(int pos) {
-		// TODO Auto-generated method stub
-		return 0;
+		 if (start == end)
+         {
+             throw new IllegalArgumentException();
+         }
+         end--;
+return ar[end];
 	}
 	@Override
 	public int min() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		  int tmp = start;
+          for (int i = start+1; i < end; i++)
+          {
+              if (ar[tmp] > ar[i])
+                  tmp = i;
+          }
+return tmp - start;
 	}
 	@Override
 	public int max() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		 int tmp = start;
+         for (int i = start+1; i < end; i++)
+         {
+             if (ar[tmp] < ar[i])
+                 tmp = i;
+         }
+return tmp - start;
 	}
 	@Override
 	public int minPos() {
-		// TODO Auto-generated method stub
-		return 0;
+		 int tmp = start;
+         for (int i = start+1; i < end; i++)
+         {
+             if (ar[tmp] > ar[i])
+                 tmp = i;
+         }
+return tmp - start;
 	}
 	@Override
 	public int maxPos() {
-		// TODO Auto-generated method stub
-		return 0;
+		int tmp = start;
+        for (int i = start+1; i < end; i++)
+        {
+            if (ar[tmp] < ar[i])
+                tmp = i;
+        }
+return tmp - start;
 	}
 	@Override
 	public void sort() {
-		// TODO Auto-generated method stub
+		for (int i = start+1; i < end; i++)
+        {
+            int j;
+            int temp = ar[i];
+            for (j = i - 1; j >= start; j--)
+            {
+                if (ar[j] < temp)
+                    break;
+                ar[j + 1] = ar[j];
+            }
+            ar[j + 1] = temp;
+}
 		
 	}
 	@Override
@@ -100,17 +150,23 @@ public class AList2 implements Elist
 	}
 	@Override
 	public void halfRevers() {
-		// TODO Auto-generated method stub
+		  for (int i = start; i < start + (end - start) / 2; i++)
+          {
+              int tmp = ar[i];
+              ar[i] = ar[end - (end - start) / 2 + i - start];
+              ar[end - (end - start) / 2 + i - start] = tmp;
+}
 		
 	}
 	@Override
 	public int get(int pos) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		 return ar[pos + start];
 	}
 	@Override
 	public void set(int pos, int val) {
-		// TODO Auto-generated method stub
+		
+		ar[pos+start] = val;
 		
 	}
 		//есть реализация где при инициализации от центар выбирают чет и не чет 
