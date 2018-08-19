@@ -151,15 +151,15 @@ public class AList0 implements Elist
 
 	@Override
 	public void halfRevers() {
-		// TODO Auto-generated method stub
+	
 		
 	}
 
 	@Override
 	public int get(int pos) 
 	{
-		if (pos < 0 || pos >index-1 ) throw new IllegalArgumentException();
-		return 0;
+		if (pos < 0 || pos >ar.length-1 ) throw new IllegalArgumentException();
+		return ar[pos];
 	}
 
 	@Override

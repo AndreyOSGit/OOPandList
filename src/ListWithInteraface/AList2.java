@@ -3,9 +3,9 @@ package ListWithInteraface;
 public class AList2 implements Elist 
 	{
 	
-	int ar[];
-	int start = ar.length/2;
-	int end = ar.length-1;
+	int ar[] = new int[50];
+	int start = 25;
+	int end = 25;
 	@Override
 	public void clear() {
 		start = ar.length/2;
@@ -115,5 +115,20 @@ public class AList2 implements Elist
 	}
 		//есть реализация где при инициализации от центар выбирают чет и не чет 
 	
+	@Override
+	public String toString() 
+	{
+		
+		String outString = "";
+		for (int i = 0; i < ar.length; i++) 
+			{
+				outString += String.format("%d, ", ar[i]);
+			}
+		
+			outString = String.format("[%s]", outString);
+		return outString;
+
+					
+	}
 	
 	}

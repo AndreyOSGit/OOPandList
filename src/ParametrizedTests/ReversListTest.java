@@ -1,20 +1,22 @@
+package ParametrizedTests;
 
 
 import static org.junit.Assert.assertArrayEquals;
 
 import java.util.Arrays;
 import java.util.Collection;
-import ListWithInteraface.*;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+import ListWithInteraface.*;
 
 @RunWith(value = Parameterized.class)
-public class ArrayListTest 
+public class ReversListTest 
 {
 	
-	    @Parameters(name = "{index}: testAdd")
+	    @Parameters(name = "{index}: ReversTest")
 	    public static Collection<Object[]> data()
 	    {
 	        return Arrays.asList(new Object[][]
@@ -30,7 +32,7 @@ public class ArrayListTest
 	    private int val;
 	    private int[] actAlist;
 
-	    public ArrayListTest(int[] expAlist, int val, int[] actAlist) 
+	    public ReversListTest(int[] expAlist, int val, int[] actAlist) 
 	    {
 	        this.expAlist = expAlist;
 	        this.val = val;
@@ -43,24 +45,24 @@ public class ArrayListTest
 	@Test
 	public void addArrayList0 ()
 	{
-	   	myArrayList act = new myArrayList();
+	   	Elist act = new AList0();
 	   	act.addStart(val);
 	   	assertArrayEquals(expAlist, act.toArray());
 	}
 	
 
-		@Test
-		public void adddArrayList1 ()
+	@Test
+	public void adddArrayList1 ()
 		{
-		   	myArrayList act = new myArrayList();
+			Elist act = new AList1();
 		   	act.addStart(val);
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 		
-		@Test
-		public void adddArrayList2 ()
+	@Test
+	public void adddArrayList2 ()
 		{
-		   	myArrayList act = new myArrayList();
+			Elist act = new AList2();
 		   	act.addStart(val);
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
