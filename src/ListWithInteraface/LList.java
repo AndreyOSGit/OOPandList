@@ -14,18 +14,14 @@ public class LList implements Elist
 	@Override
 	public void init(int[] ini) 
 	{
-		if (root == null) { addStart(ini[0]); }
-		else 
-		{
-			int i = 0;
 			Node tmp = root;
-			while(tmp.next != null)
-			{
+			for (int i = 0; i < ini.length; i++) 
+			{	
+				
+				if (i==0) { root = tmp.next; }
+//				tmp = tmp.next ;
 				tmp.next = new Node(ini[i]);
-				tmp = tmp.next;
-		    }
-
-		}
+			}
 	}
 
 	@Override
@@ -44,11 +40,14 @@ public class LList implements Elist
 	@Override
 	public int size() 
 	{
+		Node tmp = root;
 		int outSize = 0;
-		Node tmp = root;		
-		while(tmp.next != null)
+		if (root == null) { outSize = 0;} else
 		{
-		 outSize++;
+			while(tmp.next != null)
+			{
+			 outSize++;
+			}
 		}
 		return outSize;
 	}

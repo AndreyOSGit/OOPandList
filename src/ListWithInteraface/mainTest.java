@@ -19,8 +19,8 @@ public class mainTest {
 				a.init(new int[] {10,15,16});
 		
 		LList l = new LList();
-		l.init(int[] new int[]);
-		System.out.println(l);
+		l.init(new int[] {1,2,3,4,5});
+		System.out.println(l.size());
 		
 //		System.out.println(a);
 				

@@ -1,7 +1,7 @@
 package ListWithInteraface;
 
 class Node{
-	int val ;
+	int val;
 	Node next = null;
 	public Node(int val)
 	{

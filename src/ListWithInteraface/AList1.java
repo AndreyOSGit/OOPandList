@@ -29,10 +29,6 @@ public class AList1 implements Elist
 		}
 		index = ini.length;
 	}
-	public void resize()
-	{
-		
-	}
 
 	@Override
 	public int[] toArray() 
