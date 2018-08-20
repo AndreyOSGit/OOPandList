@@ -7,12 +7,12 @@ public class AList1 implements Elist
 	
 	public AList1()
 	{
-		ar = new int[30];
+		ar = new int[15];
 	}
-	public AList1(int initSize)
-	{
-		ar = new int[initSize];
-	}
+//	public AList1(int initSize)
+//	{
+//		ar = new int[initSize];
+//	}
 	@Override
 	public void clear() 
 	{
@@ -22,16 +22,26 @@ public class AList1 implements Elist
 	@Override
 	public void init(int[] ini) {
 		if ( ini == null ) ini = new int[0];
+		
 		for(int i =0; i< ini.length; i++)
 		{
 			addEnd(ini[i]);
 		}
+		index = ini.length;
+	}
+	public void resize()
+	{
+		
 	}
 
 	@Override
 	public int[] toArray() 
 	{
-		return ar;
+		int[] outArr = new int[size()];
+		for (int i = 0; i < outArr.length; i++) {
+			outArr[i] = ar[i];
+		}
+		return outArr;
 	}
 
 	@Override
@@ -43,7 +53,14 @@ public class AList1 implements Elist
 	@Override
 	public void addStart(int val) 
 	{
+		int[] buffAr = new int[size()+1];
 		
+		buffAr[0] = val;
+		for (int i = 0; i < buffAr.length; i++)
+		{
+			buffAr[i+1] = ar[i];
+		}
+		ar = buffAr;
 	}
 
 	@Override
@@ -59,9 +76,16 @@ public class AList1 implements Elist
 	}
 
 	@Override
-	public int delStart() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int delStart()
+	{	
+		int[] buffAr = new int[ar.length+1];
+		
+		for (int i = 0; i < buffAr.length; i++)
+		{
+			buffAr[i=1] = ar[i];
+		}
+		ar = buffAr;
+		return ;
 	}
 
 	@Override

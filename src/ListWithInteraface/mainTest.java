@@ -14,11 +14,15 @@ public class mainTest {
 //	
 //		outString = String.format("[%s]", outString);
 //		System.out.println( outString );		
-//		
-		AList1 a  = new AList1(10);
+////		
+		AList1 a  = new AList1();
 				a.init(new int[] {10,15,16});
 		
-				System.out.println(a);
+		LList l = new LList();
+		l.init(int[] new int[]);
+		System.out.println(l);
+		
+//		System.out.println(a);
 				
 	}
 }

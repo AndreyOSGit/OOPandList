@@ -4,7 +4,6 @@ public class AList0 implements Elist
 {
 	
 	int[] ar;
-	int index = 0;
 	public AList0() 
 	{
 		ar = new int[0];
@@ -21,7 +20,7 @@ public class AList0 implements Elist
 	public void init(int[] ini) {
 
 		if (ini == null | ini.equals(new int[] {})) {throw new IllegalArgumentException("AAA"); }
-		index = ini.length;
+		
 		ar = new int[ini.length];
 		for (int i = 0; i < ar.length ; i++)
 		{
@@ -76,7 +75,7 @@ public class AList0 implements Elist
 	@Override
 	public void addPos(int pos, int val) 
 	{
-		if (pos < 0 || pos >index-1 ) throw new IllegalArgumentException();
+		if (pos < 0 || pos >ar.length-1 ) throw new IllegalArgumentException();
 
 		int[] buff = ar;
 		ar = new int[buff.length+1];
@@ -236,7 +235,7 @@ public class AList0 implements Elist
 	@Override
 	public void set(int pos, int val) {
 
-		if (pos < 0 || pos >index-1 ) throw new IllegalArgumentException();
+		if (pos < 0 || pos >ar.length-1 ) throw new IllegalArgumentException();
 		ar[pos] = val;
 	}
 
