@@ -2,6 +2,7 @@ package ParametrizedTests;
 
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -21,21 +22,20 @@ public class DelStartListTest
 	    {
 	        return Arrays.asList(new Object[][]
 	        	{     
-	                 {  new int[]{}, 1, new int[]{1} }, 
-	                 {  new int[]{0}, 2, new int[]{0} },
-	                 {  new int[]{1}, 3, new int[]{1} },
+	                 {  1, new int[]{1} }, 
+	                 {  2, new int[]{2,0} },
+	                 {   3, new int[]{3,1,2} },
+	                 {   -1, new int[]{-1,1,2,3,4,5} }
                    
 	           });
 	    }
 
-	    private int[] expAlist;
-	    private int val;
+	    private int expVal;
 	    private int[] actAlist;
 
-	    public DelStartListTest(int[] expAlist, int val, int[] actAlist) 
+	    public DelStartListTest( int expVal, int[] actAlist) 
 	    {
-	        this.expAlist = expAlist;
-	        this.val = val;
+	        this.expVal = expVal;
 	        this.actAlist = actAlist;
 	    }
 	
@@ -46,8 +46,7 @@ public class DelStartListTest
 	public void addArrayList0 ()
 	{
 	   	Elist act = new AList0();
-	   	act.addStart(val);
-	   	assertArrayEquals(expAlist, act.toArray());
+	   	assertEquals(expVal, act.delStart());
 	}
 	
 
@@ -55,18 +54,21 @@ public class DelStartListTest
 	public void adddArrayList1 ()
 		{
 			Elist act = new AList1();
-		   	act.addStart(val);
-		   	assertArrayEquals(expAlist, act.toArray());
+		 	assertEquals(expVal, act.delStart());
 		}
 		
 	@Test
 	public void adddArrayList2 ()
 		{
 			Elist act = new AList2();
-		   	act.addStart(val);
-		   	assertArrayEquals(expAlist, act.toArray());
+		 	assertEquals(expVal, act.delStart());
 		}
-	
+	@Test
+	public void adddLinkedList1 ()
+		{
+			Elist act = new LList();
+		 	assertEquals(expVal, act.delStart());
+		}
 	
 }
 

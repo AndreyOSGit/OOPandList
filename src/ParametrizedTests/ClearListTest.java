@@ -21,21 +21,22 @@ public class ClearListTest
 	    {
 	        return Arrays.asList(new Object[][]
 	        	{     
-	                 {  new int[]{}, 1, new int[]{1} }, 
-	                 {  new int[]{0}, 2, new int[]{0} },
-	                 {  new int[]{1}, 3, new int[]{1} },
+	                 {  new int[]{}, new int[]{0} }, 
+	                 {  new int[]{0},  new int[]{0} },
+	                 {  new int[]{-1},  new int[]{0} },
+	                 {  new int[]{1,2},  new int[]{0} },
+	                 {  new int[]{1,2,3,4,5},  new int[]{0} },
                    
 	           });
 	    }
 
 	    private int[] expAlist;
-	    private int val;
 	    private int[] actAlist;
 
-	    public ClearListTest(int[] expAlist, int val, int[] actAlist) 
+	    public ClearListTest(int[] expAlist,  int[] actAlist) 
 	    {
 	        this.expAlist = expAlist;
-	        this.val = val;
+	    
 	        this.actAlist = actAlist;
 	    }
 	
@@ -46,7 +47,7 @@ public class ClearListTest
 	public void addArrayList0 ()
 	{
 	   	Elist act = new AList0();
-	   	act.addStart(val);
+	   	act.clear();
 	   	assertArrayEquals(expAlist, act.toArray());
 	}
 	
@@ -55,7 +56,7 @@ public class ClearListTest
 	public void adddArrayList1 ()
 		{
 			Elist act = new AList1();
-		   	act.addStart(val);
+			act.clear();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 		
@@ -63,7 +64,14 @@ public class ClearListTest
 	public void adddArrayList2 ()
 		{
 			Elist act = new AList2();
-		   	act.addStart(val);
+			act.clear();
+		   	assertArrayEquals(expAlist, act.toArray());
+		}
+	@Test
+	public void adddLinkedList1 ()
+		{
+			Elist act = new LList();
+			act.clear();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 	

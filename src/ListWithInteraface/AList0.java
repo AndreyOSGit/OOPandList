@@ -248,7 +248,7 @@ public class AList0 implements Elist
 			outString += String.format("%d, ", ar[i]);
 		}
 
-		outString = String.format("[%s]", outString);
+//		outString = String.format("[%s]", outString);
 		return outString;		
 	}
 

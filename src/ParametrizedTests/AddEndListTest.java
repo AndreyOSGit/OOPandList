@@ -67,7 +67,13 @@ public class AddEndListTest
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 	
-	
+	@Test
+	public void adddLinkedList1 ()
+		{
+			Elist act = new LList();
+			act.;
+		   	assertArrayEquals(expAlist, act.toArray());
+		}
 }
 
 

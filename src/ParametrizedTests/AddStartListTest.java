@@ -21,9 +21,10 @@ public class AddStartListTest
 	    {
 	        return Arrays.asList(new Object[][]
 	        	{     
-	                 {  new int[]{}, 1, new int[]{1} }, 
-	                 {  new int[]{0}, 2, new int[]{0} },
-	                 {  new int[]{1}, 3, new int[]{1} },
+		            {  new int[]{}, 1, new int[]{1} }, 
+	                {  new int[]{0}, 2, new int[]{2,0} },
+	                {  new int[]{1,2}, 3, new int[]{3,1,2} },
+	                {  new int[]{1,2,3,4,5}, -1, new int[]{-1,1,2,3,4,5} }
                    
 	           });
 	    }
@@ -66,7 +67,13 @@ public class AddStartListTest
 		   	act.addStart(val);
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
-	
+	@Test
+	public void adddLinkedList1 ()
+		{
+			Elist act = new LList();
+			act.addStart(val);
+//		   	assertArrayEquals(expAlist, act.toArray());
+		}
 	
 }
 
