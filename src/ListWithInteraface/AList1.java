@@ -8,6 +8,7 @@ public class AList1 implements Elist
 	public AList1()
 	{
 		ar = new int[15];
+		ar = null;
 	}
 //	public AList1(int initSize)
 //	{
@@ -74,14 +75,13 @@ public class AList1 implements Elist
 	@Override
 	public int delStart()
 	{	
-		int[] buffAr = new int[ar.length+1];
-		
-		for (int i = 0; i < buffAr.length; i++)
-		{
-			buffAr[i=1] = ar[i];
-		}
-		ar = buffAr;
-		return ;
+		if (root == null)
+        {
+            throw new IllegalArgumentException();
+        }
+        int p = root.val;
+        root = root.next;
+        return ret;
 	}
 
 	@Override
