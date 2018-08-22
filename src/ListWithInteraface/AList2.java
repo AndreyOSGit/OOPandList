@@ -1,8 +1,8 @@
 package ListWithInteraface;
 
 public class AList2 implements Elist 
-	{
-	
+{
+
 	int ar[] = new int[30];
 	int start = 15;
 	int end = 15;
@@ -88,44 +88,44 @@ public class AList2 implements Elist
 	@Override
 	public int min() {
 
-		int tmp = start;
+		int buff = start;
 		for (int i = start+1; i < end; i++)
 		{
-			if (ar[tmp] > ar[i])
-				tmp = i;
+			if (ar[buff] > ar[i])
+				buff = i;
 		}
-		return tmp - start;
+		return buff - start;
 	}
 	@Override
 	public int max() {
 
-		int tmp = start;
+		int buff = start;
 		for (int i = start+1; i < end; i++)
 		{
-			if (ar[tmp] < ar[i])
-				tmp = i;
+			if (ar[buff] < ar[i])
+				buff = i;
 		}
-		return tmp - start;
+		return buff - start;
 	}
 	@Override
 	public int minPos() {
-		int tmp = start;
+		int buff = start;
 		for (int i = start+1; i < end; i++)
 		{
-			if (ar[tmp] > ar[i])
-				tmp = i;
+			if (ar[buff] > ar[i])
+				buff = i;
 		}
-		return tmp - start;
+		return buff - start;
 	}
 	@Override
 	public int maxPos() {
-		int tmp = start;
+		int buff = start;
 		for (int i = start+1; i < end; i++)
 		{
-			if (ar[tmp] < ar[i])
-				tmp = i;
+			if (ar[buff] < ar[i])
+				buff = i;
 		}
-		return tmp - start;
+		return buff - start;
 	}
 	@Override
 	public void sort() {
@@ -145,16 +145,20 @@ public class AList2 implements Elist
 	}
 	@Override
 	public void revers() {
-		// TODO Auto-generated method stub
-
+		for (int i = start; i < start + (size()) / 2; i++)
+		{
+			int tmp = ar[i];
+			ar[i] = ar[end - i + start - 1];
+			ar[end - i + start - 1] = tmp;
+		}
 	}
 	@Override
 	public void halfRevers() {
-		for (int i = start; i < start + (end - start) / 2; i++)
+		for (int i = start; i < start + (size()) / 2; i++)
 		{
-			int tmp = ar[i];
-			ar[i] = ar[end - (end - start) / 2 + i - start];
-			ar[end - (end - start) / 2 + i - start] = tmp;
+			int buff = ar[i];
+			ar[i] = ar[end - (size()) / 2 + i - start];
+			ar[end - (end - size()) / 2 + i - start] = buff;
 		}
 
 	}
@@ -186,5 +190,5 @@ public class AList2 implements Elist
 
 
 	}
-	
-	}
+
+}

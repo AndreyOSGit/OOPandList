@@ -48,13 +48,13 @@ public class AList0 implements Elist
 	@Override
 	public void addStart(int val) 
 	{
-		int[] buff = ar;
-		ar = new int[buff.length+1];
-		ar[0] = val;
-		for (int i = 1; i < ar.length ; i++)
+		int[] buff = new int[size()+1];
+		buff[0] = val;
+		for (int i = 0; i < ar.length ; i++)
 		{
-			ar[i] = buff[i];
+			buff[i+1] = ar[i];
 		} 
+		ar = buff;
 
 	}
 
@@ -62,13 +62,13 @@ public class AList0 implements Elist
 	public void addEnd(int val) 
 	{
 
-		int[] buff = ar;
-		ar = new int[buff.length+1];
-		ar[ar.length-1] = val;
+		int[] buff = new int[size()+1];
+		buff[size()+1] = val;
 		for (int i = 0; i < ar.length ; i++)
 		{
-			ar[i] = buff[i];
+			buff[i] = ar[i];
 		} 
+		ar = buff;
 
 	}
 
@@ -77,13 +77,17 @@ public class AList0 implements Elist
 	{
 		if (pos < 0 || pos >ar.length-1 ) throw new IllegalArgumentException();
 
-		int[] buff = ar;
-		ar = new int[buff.length+1];
-		ar[pos] = val;
-		for (int i = 0; i < ar.length-1 ; i++)
+		int[] buff = new int[size() + 1];
+		for (int i = 0; i < pos; i++)
 		{
-			ar[i] = buff[i];
+			buff[i] = ar[i];
 		}
+		for (int i = pos; i < size(); i++)
+		{
+			buff[i + 1] = ar[i];
+		}
+		buff[pos] = val;
+		ar = buff;
 	}
 
 	@Override
@@ -94,12 +98,12 @@ public class AList0 implements Elist
 			throw new IllegalArgumentException();
 		}
 		int val = ar[0];
-		int[] tmp = new int[ar.length - 1];
+		int[] buff = new int[ar.length - 1];
 		for (int i = 0; i < ar.length - 1; i++)
 		{
-			tmp[i] = ar[i + 1];
+			buff[i] = ar[i + 1];
 		}
-		ar = tmp;
+		ar = buff;
 		return val;
 	}
 
@@ -111,12 +115,12 @@ public class AList0 implements Elist
 			throw new IllegalArgumentException();
 		}
 		int val = ar[ar.length - 1];
-		int[] tmp = new int[ar.length - 1];
+		int[] buff = new int[ar.length - 1];
 		for (int i = 0; i < ar.length - 1; i++)
 		{
-			tmp[i] = ar[i];
+			buff[i] = ar[i];
 		}
-		ar = tmp;
+		ar = buff;
 		return val;
 	}
 
@@ -128,62 +132,62 @@ public class AList0 implements Elist
 			throw new IllegalArgumentException();
 		}
 		int val = ar[pos];
-		int[] tmp = new int[ar.length - 1];
+		int[] buff = new int[ar.length - 1];
 		for (int i = 0; i < pos; i++)
 		{
-			tmp[i] = ar[i];
+			buff[i] = ar[i];
 		}
 		for (int i = pos; i < ar.length - 1; i++)
 		{
-			tmp[i] = ar[i + 1];
+			buff[i] = ar[i + 1];
 		}
-		ar = tmp;
+		ar = buff;
 		return val;
 	}
 
 	@Override
 	public int min() {
 
-		int tmp = ar[0];
+		int buff = ar[0];
 		for (int i = 1; i < ar.length; i++)
 		{
-			if (tmp > ar[i])
-				tmp = ar[i];
+			if (buff > ar[i])
+				buff = ar[i];
 		}
-		return tmp;
+		return buff;
 	}
 
 	@Override
 	public int max() {
-		int tmp = ar[0];
+		int buff = ar[0];
 		for (int i = 1; i < ar.length; i++)
 		{
-			if (tmp < ar[i])
-				tmp = ar[i];
+			if (buff < ar[i])
+				buff = ar[i];
 		}
-		return tmp;
+		return buff;
 	}
 
 	@Override
 	public int minPos() {
-		int tmp = 0;
+		int buff = 0;
 		for (int i = 0; i < ar.length; i++)
 		{
-			if (ar[tmp] > ar[i])
-				tmp = i;
+			if (ar[buff] > ar[i])
+				buff = i;
 		}
-		return tmp;
+		return buff;
 	}
 
 	@Override
 	public int maxPos() {
-		int tmp = 0;
+		int buff = 0;
 		for (int i = 0; i < ar.length; i++)
 		{
-			if (ar[tmp] < ar[i])
-				tmp = i;
+			if (ar[buff] < ar[i])
+				buff = i;
 		}
-		return tmp;
+		return buff;
 	}
 
 	@Override
@@ -207,9 +211,9 @@ public class AList0 implements Elist
 	public void revers() {
 		for (int i = 0; i < ar.length / 2; i++)
 		{
-			int tmp = ar[i];
+			int buff = ar[i];
 			ar[i] = ar[ar.length - i - 1];
-			ar[ar.length - i - 1] = tmp;
+			ar[ar.length - i - 1] = buff;
 		}
 
 	}
@@ -218,9 +222,9 @@ public class AList0 implements Elist
 	public void halfRevers() {
 		for (int i = 0; i < ar.length / 2; i++)
 		{
-			int tmp = ar[i];
+			int buff = ar[i];
 			ar[i] = ar[ar.length - ar.length / 2 + i];
-			ar[ar.length - ar.length / 2 + i] = tmp;
+			ar[ar.length - ar.length / 2 + i] = buff;
 		}
 
 	}
