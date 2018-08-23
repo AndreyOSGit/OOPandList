@@ -21,57 +21,62 @@ public class ClearListTest
 	    {
 	        return Arrays.asList(new Object[][]
 	        	{     
-	                 {  new int[]{}, new int[]{0} }, 
-	                 {  new int[]{0},  new int[]{0} },
-	                 {  new int[]{-1},  new int[]{0} },
-	                 {  new int[]{1,2},  new int[]{0} },
-	                 {  new int[]{1,2,3,4,5},  new int[]{0} },
+	                 {  new int[]{}, new int[]{} }, 
+	                 {  new int[]{0},  new int[]{} },
+	                 {  new int[]{-1},  new int[]{} },
+	                 {  new int[]{1,2},  new int[]{} },
+	                 {  new int[]{1,2,3,4,5},  new int[]{} },
                    
 	           });
 	    }
 
 	    private int[] expAlist;
-	    private int[] actAlist;
+	    private int[] inputData;
 
-	    public ClearListTest(int[] expAlist,  int[] actAlist) 
+	    public ClearListTest( int[] inputData, int[] expAlist ) 
 	    {
 	        this.expAlist = expAlist;
 	    
-	        this.actAlist = actAlist;
+	        this.inputData = inputData;
 	    }
 	
 	// nugen init - для передачи массива and toArray - для возвращения результата
 	//
 	
 	@Test
-	public void addArrayList0 ()
+	public void ClearArrayList0 ()
 	{
 	   	Elist act = new AList0();
+	   	act.init(inputData);
 	   	act.clear();
 	   	assertArrayEquals(expAlist, act.toArray());
 	}
 	
 
 	@Test
-	public void adddArrayList1 ()
+	public void ClearArrayList1 ()
 		{
 			Elist act = new AList1();
-			act.clear();
+			act.init(inputData);
+		   	act.clear();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 		
 	@Test
-	public void adddArrayList2 ()
+	public void ClearArrayList2 ()
 		{
 			Elist act = new AList2();
-			act.clear();
+			act.init(inputData);
+			
+		   	act.clear();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 	@Test
-	public void adddLinkedList1 ()
+	public void ClearLinkedList1 ()
 		{
 			Elist act = new LList();
-			act.clear();
+			act.init(inputData);
+		   	act.clear();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 	

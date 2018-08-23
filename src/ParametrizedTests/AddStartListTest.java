@@ -16,7 +16,7 @@ import ListWithInteraface.*;
 public class AddStartListTest 
 {
 	
-	    @Parameters(name = "{index}: AddStartTest")
+	    @Parameters(name = "{index}: AddStarttTest")
 	    public static Collection<Object[]> data()
 	    {
 	        return Arrays.asList(new Object[][]
@@ -31,20 +31,20 @@ public class AddStartListTest
 
 	    private int[] expAlist;
 	    private int val;
-	    private int[] actAlist;
+	    private int[] inputData;
 
-	    public AddStartListTest(int[] expAlist, int val, int[] actAlist) 
+	    public AddStartListTest(int[] inputData, int val, int[] expAlist) 
 	    {
 	        this.expAlist = expAlist;
 	        this.val = val;
-	        this.actAlist = actAlist;
+	        this.inputData = inputData;
 	    }
 	
 	// nugen init - для передачи массива and toArray - для возвращения результата
 	//
 	
 	@Test
-	public void addArrayList0 ()
+	public void AddStarttArrayList0 ()
 	{
 	   	Elist act = new AList0();
 	   	act.addStart(val);
@@ -53,26 +53,30 @@ public class AddStartListTest
 	
 
 	@Test
-	public void adddArrayList1 ()
+	public void AddStartArrayList1 ()
 		{
 			Elist act = new AList1();
+			act.init(inputData);
 		   	act.addStart(val);
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 		
 	@Test
-	public void adddArrayList2 ()
+	public void AddStartArrayList2 ()
 		{
 			Elist act = new AList2();
+			act.init(inputData);
 		   	act.addStart(val);
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 	@Test
-	public void adddLinkedList1 ()
+	public void AddStartLinkedList1 ()
+	
 		{
 			Elist act = new LList();
+			act.init(inputData);
 			act.addStart(val);
-//		   	assertArrayEquals(expAlist, act.toArray());
+		   	assertArrayEquals(expAlist, act.toArray());
 		}
 	
 }

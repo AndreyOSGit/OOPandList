@@ -23,54 +23,57 @@ public class toStringListTest
 	    {
 	        return Arrays.asList(new Object[][]
 	        	{     
-	                 {  new int[]{},  "[]" }, 
-	                 {  new int[]{0},  "[0, ]" },
-	                 {  new int[]{1,2},  "[1, 2, ]" },
-	                 {  new int[]{0,1,2,3,5},  "[0, 1, 2, 3, 5, ]" }
+	                 {  new int[]{},  "" }, 
+	                 {  new int[]{0},  "0, " },
+	                 {  new int[]{1,2},  "1, 2, " },
+	                 {  new int[]{0,1,2,3,5},  "0, 1, 2, 3, 5, " }
                    
 	           });
 	    }
 
 	    private String expAlist;
 
-	    private int[] actAlist;
+	    private int[] inputData;
 
-	    public toStringListTest(int[] actAlist, String expAlist ) 
+	    public toStringListTest(int[] inputData, String expAlist ) 
 	    {
 	        this.expAlist = expAlist;
 
-	        this.actAlist = actAlist;
+	        this.inputData = inputData;
 	    }
 	
 	// nugen init - для передачи массива and toArray - для возвращения результата
 	//
 	
 	@Test
-	public void addArrayList0 ()
+	public void  toStringArrayList0 ()
 	{
 	   	Elist act = new AList0();
-	   	
+	   	act.init(inputData);
 	   	assertEquals(expAlist, (act.toString()));
 	}
 	
 
 	@Test
-	public void adddArrayList1 ()
+	public void  toStringArrayList1 ()
 		{
 			Elist act = new AList1();
+			act.init(inputData);
 			assertEquals(expAlist, (act.toString()));
 		}
 		
 	@Test
-	public void adddArrayList2 ()
+	public void  toStringArrayList2 ()
 		{
 			Elist act = new AList2();
+			act.init(inputData);
 			assertEquals(expAlist, (act.toString()));
 		}
 	@Test
-	public void adddLinkedList1 ()
+	public void  toStringLinkedList1 ()
 		{
 			Elist act = new LList();
+			act.init(inputData);
 			assertEquals(expAlist, (act.toString()));
 		}
 	

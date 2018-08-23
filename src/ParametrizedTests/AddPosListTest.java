@@ -21,58 +21,68 @@ public class AddPosListTest
 	    {
 	        return Arrays.asList(new Object[][]
 	        	{     
-	                 {  new int[]{}, 1, new int[]{1} }, 
-	                 {  new int[]{0}, 2, new int[]{0} },
-	                 {  new int[]{1}, 3, new int[]{1} },
-                   
+		        	{  new int[]{}, 		 0, 15,	new int[]{} }, 
+	                {  new int[]{0}, 		 1, 15,	new int[]{0,15} },
+	                {  new int[]{-1}, 		 0,	15, new int[]{15,-1} },
+	                
+	                {  new int[]{1,2},		 1,	15, new int[]{1,15,2} },
+	                {  new int[]{1,2},		 4,	15, new int[]{1,2,15} },
+	                {  new int[]{1,2,3,4,5}, 5, 15, new int[]{1,2,3,4,15,5} }
 	           });
 	    }
 
-	    private int[] expAlist;
+	    private int[] expArray;
+	    private int pos;
 	    private int val;
-	    private int[] actAlist;
+	    private int[] inputData;
 
-	    public AddPosListTest(int[] expAlist, int val, int[] actAlist) 
+	    public AddPosListTest(int[] inputData, int pos, int val, int[] expArray) 
 	    {
-	        this.expAlist = expAlist;
+	    	this.inputData = inputData;
+	        this.expArray = expArray;
+	        this.pos = pos;
 	        this.val = val;
-	        this.actAlist = actAlist;
+	       
 	    }
 	
 	// nugen init - для передачи массива and toArray - для возвращения результата
 	//
 	
 	@Test
-	public void addArrayList0 ()
+	public void addPosArrayList0 ()
 	{
 	   	Elist act = new AList0();
-	   	act.addStart(val);
-	   	assertArrayEquals(expAlist, act.toArray());
+	   	act.init(inputData);
+	   	act.addPos(pos, val);
+	   	assertArrayEquals(expArray, act.toArray());
 	}
 	
 
 	@Test
-	public void adddArrayList1 ()
+	public void addPosArrayList1 ()
 		{
 			Elist act = new AList1();
-		   	act.addStart(val);
-		   	assertArrayEquals(expAlist, act.toArray());
+			act.init(inputData);
+		   	act.addPos(pos, val);
+		   	assertArrayEquals(expArray, act.toArray());
 		}
 		
 	@Test
-	public void adddArrayList2 ()
+	public void addPosArrayList2 ()
 		{
 			Elist act = new AList2();
-		   	act.addStart(val);
-		   	assertArrayEquals(expAlist, act.toArray());
+			act.init(inputData);
+		   	act.addPos(pos, val);
+		   	assertArrayEquals(expArray, act.toArray());
 		}
 	
 	@Test
-	public void adddLinkedList1 ()
+	public void addPosLinkedList1 ()
 		{
 			Elist act = new LList();
-			act.;
-		   	assertArrayEquals(expAlist, act.toArray());
+			act.init(inputData);
+			act.addPos(pos, val);
+			assertArrayEquals(expArray, act.toArray());
 		}
 }
 

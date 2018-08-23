@@ -6,9 +6,8 @@ public class AList1 implements Elist {
 
 	public AList1() {
 		ar = new int[15];
-		for (a : ar)
-		{
-			a = Integer.MIN_VALUE;
+		for (int i = 0; i < 15; i++) {
+			ar[i] = Integer.MIN_VALUE;
 		}
 	}
 
@@ -173,13 +172,13 @@ public class AList1 implements Elist {
 
 		for (int i = 1; i < index; i++) {
 			int j;
-			int temp = ar[i];
+			int buff = ar[i];
 			for (j = i - 1; j >= 0; j--) {
-				if (ar[j] < temp)
+				if (ar[j] < buff)
 					break;
 				ar[j + 1] = ar[j];
 			}
-			ar[j + 1] = temp;
+			ar[j + 1] = buff;
 		}
 
 	}
@@ -226,10 +225,13 @@ public class AList1 implements Elist {
 
 		String outString = "";
 		for (int i = 0; i < ar.length; i++) {
-			outString += String.format("%d, ", ar[i]);
+			if ( ar[i] != Integer.MIN_VALUE ) {
+				outString += String.format("%d, ", ar[i]);
+			}
+
 		}
 
-//			outString = String.format("[%s]", outString);
+		//			outString = String.format("[%s]", outString);
 		return outString;
 
 	}

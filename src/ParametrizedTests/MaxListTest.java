@@ -1,7 +1,7 @@
 package ParametrizedTests;
 
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -21,57 +21,61 @@ public class MaxListTest
 	    {
 	        return Arrays.asList(new Object[][]
 	        	{     
-	                 {  new int[]{}, 1, new int[]{1} }, 
-	                 {  new int[]{0}, 2, new int[]{0} },
-	                 {  new int[]{1}, 3, new int[]{1} },
+	            {  new int[]{}, 		   0}, 
+                {  new int[]{0},  	 	   0},
+                {  new int[]{-1},   	   -1},
+                {  new int[]{1,2},   		2},
+                {  new int[]{1,2,3,4,5},    5}
                    
 	           });
 	    }
 
-	    private int[] expAlist;
-	    private int val;
-	    private int[] actAlist;
+	    private int exp;
+	    private int[] inputData;
 
-	    public MaxListTest(int[] expAlist, int val, int[] actAlist) 
+	    public MaxListTest(int[] inputData, int exp) 
 	    {
-	        this.expAlist = expAlist;
-	        this.val = val;
-	        this.actAlist = actAlist;
+	        this.exp = exp;
+	        this.inputData = inputData;
 	    }
 	
 	// nugen init - для передачи массива and toArray - для возвращения результата
 	//
 	
 	@Test
-	public void addArrayList0 ()
+	public void MaxArrayList0 ()
 	{
 	   	Elist act = new AList0();
-	   	act.addStart(val);
-	   	assertArrayEquals(expAlist, act.toArray());
+	   	act.init(inputData);
+	   	 
+	   	assertEquals(exp, act.max());
 	}
 	
 
 	@Test
-	public void adddArrayList1 ()
+	public void MaxArrayList1 ()
 		{
 			Elist act = new AList1();
-		   	act.addStart(val);
-		   	assertArrayEquals(expAlist, act.toArray());
+			act.init(inputData);
+		   	 
+		   	assertEquals(exp, act.max());
 		}
 		
 	@Test
-	public void adddArrayList2 ()
+	public void MaxArrayList2 ()
 		{
 			Elist act = new AList2();
-		   	act.addStart(val);
-		   	assertArrayEquals(expAlist, act.toArray());
+			act.init(inputData);
+		   	 
+		   	assertEquals(exp, act.max());
 		}
 	@Test
-	public void adddLinkedList1 ()
+	public void MaxLinkedList1 ()
 		{
 			Elist act = new LList();
-			act.;
-		   	assertArrayEquals(expAlist, act.toArray());
+			act.init(inputData);
+			 
+		   	assertEquals(exp, act.max());
 		}
 	
 }

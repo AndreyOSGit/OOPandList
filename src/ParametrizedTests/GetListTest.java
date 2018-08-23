@@ -1,7 +1,8 @@
 package ParametrizedTests;
 
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -21,57 +22,62 @@ public class GetListTest
 	    {
 	        return Arrays.asList(new Object[][]
 	        	{     
-	                 {  new int[]{}, 1, new int[]{1} }, 
-	                 {  new int[]{0}, 2, new int[]{0} },
-	                 {  new int[]{1}, 3, new int[]{1} },
+	        	{  new int[]{}, 		 0,	0 }, 
+                {  new int[]{0}, 		 0,	0 },
+                {  new int[]{-1}, 		 3,	0 },
+                {  new int[]{1,2},		 2,	2 },
+                {  new int[]{1,2,3,4,5}, 4, 5 }
                    
 	           });
 	    }
 
-	    private int[] expAlist;
-	    private int val;
-	    private int[] actAlist;
+	    private int expElement;
+	    private int pos;
+	    private int[] inputData;
 
-	    public GetListTest(int[] expAlist, int val, int[] actAlist) 
+	    public GetListTest(int[] inputData, int pos, int expElement) 
 	    {
-	        this.expAlist = expAlist;
-	        this.val = val;
-	        this.actAlist = actAlist;
+	        this.expElement = expElement;
+	        this.pos = pos;
+	        this.inputData = inputData;
 	    }
 	
 	// nugen init - для передачи массива and toArray - для возвращения результата
 	//
 	
 	@Test
-	public void addArrayList0 ()
+	public void GetArrayList0 ()
 	{
 	   	Elist act = new AList0();
-	   	act.addStart(val);
-	   	assertArrayEquals(expAlist, act.toArray());
+	   	act.init(inputData);
+	   	act.get(pos);
+	   	assertEquals(expElement, act.get(pos));
 	}
 	
 
 	@Test
-	public void adddArrayList1 ()
+	public void GetArrayList1 ()
 		{
 			Elist act = new AList1();
-		   	act.addStart(val);
-		   	assertArrayEquals(expAlist, act.toArray());
+			act.init(inputData);
+		   	act.addStart(pos);
+		   	assertEquals(expElement, act.get(pos));
 		}
 		
 	@Test
-	public void adddArrayList2 ()
+	public void GetArrayList2 ()
 		{
 			Elist act = new AList2();
-		   	act.addStart(val);
-		   	assertArrayEquals(expAlist, act.toArray());
+			act.init(inputData);
+		   	act.addStart(pos);
+		   	assertEquals(expElement, act.get(pos));
 		}
 	@Test
-	public void adddLinkedList1 ()
+	public void GetLinkedList1 ()
 		{
 			Elist act = new LList();
-			act.;
-		   	assertArrayEquals(expAlist, act.toArray());
+			act.init(inputData);
+		   	assertEquals(expElement, act.get(pos));
 		}
 	
 }

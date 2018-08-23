@@ -28,13 +28,13 @@ public class ArrayListTest
 
 	    private int[] expAlist;
 	    private int val;
-	    private int[] actAlist;
+	    private int[] inputData;
 
-	    public ArrayListTest(int[] expAlist, int val, int[] actAlist) 
+	    public ArrayListTest(int[] inputData, int val, int[] expAlist) 
 	    {
 	        this.expAlist = expAlist;
 	        this.val = val;
-	        this.actAlist = actAlist;
+	        this.inputData = inputData;
 	    }
 	
 	// nugen init - для передачи массива and toArray - для возвращения результата
@@ -50,7 +50,7 @@ public class ArrayListTest
 	
 
 		@Test
-		public void adddArrayList1 ()
+		public void revArrayList1 ()
 		{
 		   	myArrayList act = new myArrayList();
 		   	act.addStart(val);
@@ -58,7 +58,7 @@ public class ArrayListTest
 		}
 		
 		@Test
-		public void adddArrayList2 ()
+		public void revArrayList2 ()
 		{
 		   	myArrayList act = new myArrayList();
 		   	act.addStart(val);

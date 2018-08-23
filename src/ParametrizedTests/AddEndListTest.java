@@ -21,59 +21,63 @@ public class AddEndListTest
 	    {
 	        return Arrays.asList(new Object[][]
 	        	{     
-	                 {  new int[]{}, 1, new int[]{1} }, 
-	                 {  new int[]{0}, 2, new int[]{0} },
-	                 {  new int[]{1}, 3, new int[]{1} },
+		        	{  new int[]{}, 		 1,	new int[]{1} }, 
+	                {  new int[]{0}, 		 2,	new int[]{0,2} },
+	                {  new int[]{-1}, 		 3,	new int[]{-1,3} },
+	                {  new int[]{1,2},		 4,	new int[]{1,2,4} },
+	                {  new int[]{1,2,3,4,5}, 5, new int[]{1,2,3,4,5,5} }
                    
 	           });
 	    }
 
 	    private int[] expAlist;
 	    private int val;
-	    private int[] actAlist;
+	    private int[] inputData;
 
-	    public AddEndListTest(int[] expAlist, int val, int[] actAlist) 
+	    public AddEndListTest(int[] inputData, int val, int[] expAlist) 
 	    {
 	        this.expAlist = expAlist;
 	        this.val = val;
-	        this.actAlist = actAlist;
+	        this.inputData = inputData;
 	    }
 	
 	// nugen init - для передачи массива and toArray - для возвращения результата
 	//
 	
 	@Test
-	public void addArrayList0 ()
+	public void AddEndArrayList0 ()
 	{
 	   	Elist act = new AList0();
+	   	act.init(inputData);
 	   	act.addStart(val);
 	   	assertArrayEquals(expAlist, act.toArray());
 	}
 	
 
 	@Test
-	public void adddArrayList1 ()
+	public void AddEndArrayList1 ()
 		{
 			Elist act = new AList1();
+			act.init(inputData);
 		   	act.addStart(val);
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 		
 	@Test
-	public void adddArrayList2 ()
+	public void AddEndArrayList2 ()
 		{
 			Elist act = new AList2();
+			act.init(inputData);
 		   	act.addStart(val);
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 	
 	@Test
-	public void adddLinkedList1 ()
+	public void AddEndLinkedList1 ()
 		{
 			Elist act = new LList();
-			act.;
+			act.init(inputData);
+			act.addStart(val);
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 }
-
-

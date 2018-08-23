@@ -16,61 +16,65 @@ import ListWithInteraface.*;
 public class HalfReversListTest 
 {
 	
-	    @Parameters(name = "{index}: HalfReversTest")
+	    @Parameters(name = "{index}: HalfHalfReversersTest")
 	    public static Collection<Object[]> data()
 	    {
 	        return Arrays.asList(new Object[][]
 	        	{     
-	                 {  new int[]{}, 1, new int[]{1} }, 
-	                 {  new int[]{0}, 2, new int[]{0} },
-	                 {  new int[]{1}, 3, new int[]{1} },
+	        	{  new int[]{}, 		 	new int[]{} }, 
+                {  new int[]{0}, 		 	new int[]{0} },
+                {  new int[]{-1}, 		 	new int[]{-1} },
+                {  new int[]{1,2},		 	new int[]{2,1} },
+                {  new int[]{1,2,3,4,5},  new int[]{4,5,3,1,2} }
                    
 	           });
 	    }
 
 	    private int[] expAlist;
-	    private int val;
-	    private int[] actAlist;
+	    private int[] inputData;
 
-	    public HalfReversListTest(int[] expAlist, int val, int[] actAlist) 
+	    public HalfReversListTest(int[] inputData,  int[] expAlist) 
 	    {
 	        this.expAlist = expAlist;
-	        this.val = val;
-	        this.actAlist = actAlist;
+	        this.inputData = inputData;
 	    }
 	
 	// nugen init - для передачи массива and toArray - для возвращения результата
 	//
 	
 	@Test
-	public void addArrayList0 ()
+	public void HalfHalfReversersArrayList0 ()
 	{
 	   	Elist act = new AList0();
-	   	act.addStart(val);
+	   	act.init(inputData);
+	   	act.halfRevers();
 	   	assertArrayEquals(expAlist, act.toArray());
 	}
 	
 
 	@Test
-	public void adddArrayList1 ()
+	public void HalfReversArrayList1 ()
 		{
 			Elist act = new AList1();
-		   	act.addStart(val);
+			act.init(inputData);
+		   	act.halfRevers();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 		
 	@Test
-	public void adddArrayList2 ()
+	public void HalfReversArrayList2 ()
 		{
 			Elist act = new AList2();
-		   	act.addStart(val);
+			act.init(inputData);
+		   	act.halfRevers();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 	@Test
-	public void adddLinkedList1 ()
+	public void HalfReversLinkedList1 ()
 		{
 			Elist act = new LList();
-			act.;
+			act.init(inputData);
+		   	act.halfRevers();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 	

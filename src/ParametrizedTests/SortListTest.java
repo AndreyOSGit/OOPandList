@@ -21,57 +21,65 @@ public class SortListTest
 	    {
 	        return Arrays.asList(new Object[][]
 	        	{     
-	                 {  new int[]{}, 1, new int[]{1} }, 
-	                 {  new int[]{0}, 2, new int[]{0} },
-	                 {  new int[]{1}, 3, new int[]{1} },
+	        	{  new int[]{}, 		 	new int[]{} }, 
+                {  new int[]{0}, 		 	new int[]{0} },
+                {  new int[]{-1}, 		 	new int[]{-1} },
+                {  new int[]{2,1},		 	new int[]{1,2} },
+                {  new int[]{1,2,3,4,5},    new int[]{5,2,3,4,5} },
+                {  new int[]{0,2,3,4,0},    new int[]{0,0,2,3,4,5} },
+                {  new int[]{0,1,3,-6,5},    new int[]{-6,0,1,3,5} }
                    
 	           });
 	    }
 
 	    private int[] expAlist;
-	    private int val;
-	    private int[] actAlist;
+	
+	    private int[] inputData;
 
-	    public SortListTest(int[] expAlist, int val, int[] actAlist) 
+	    public SortListTest(int[] inputData, int[] expAlist) 
 	    {
 	        this.expAlist = expAlist;
-	        this.val = val;
-	        this.actAlist = actAlist;
+	       
+	        this.inputData = inputData;
 	    }
 	
 	// nugen init - для передачи массива and toArray - для возвращения результата
 	//
 	
 	@Test
-	public void addArrayList0 ()
+	public void SortArrayList0 ()
 	{
 	   	Elist act = new AList0();
-	   	act.addStart(val);
+	   	act.init(inputData);
+	   	act.sort();
 	   	assertArrayEquals(expAlist, act.toArray());
 	}
 	
 
 	@Test
-	public void adddArrayList1 ()
+	public void SortdArrayList1 ()
 		{
 			Elist act = new AList1();
-		   	act.addStart(val);
+			act.init(inputData);
+			act.sort();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 		
 	@Test
-	public void adddArrayList2 ()
+	public void SortdArrayList2 ()
 		{
 			Elist act = new AList2();
-		   	act.addStart(val);
+			act.init(inputData);
+			act.sort();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 	
 	@Test
-	public void adddLinkedList1 ()
+	public void SortLinkedList1 ()
 		{
 			Elist act = new LList();
-			act.;
+			act.init(inputData);
+			act.sort();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 }
