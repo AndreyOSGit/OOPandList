@@ -266,9 +266,69 @@ public class LList implements Elist
 				}
 			}
 		}
-
 	}
+		
+		public void sortThroughList() 
+		{
+			Node tmpRoot = null;
+			
+			LList tmpLst = new LList();
+			while (root != null)
+			{
+				int pos = maxPos();
+				int val = delPos(pos);
+				tmpLst.addStart(val);
+				root = tmpLst.root;
+			}
 
+		}
+
+		
+		// relink
+		public void sortThroughListTMP() 
+		{
+			Node tmpRoot = null;
+			Node tmp;
+			Node prev;
+			Node max;
+			while (root != null)
+			{
+				tmp = root;
+				prev = root;
+				max = root;
+				
+				while (tmp.next != null)
+				{
+					if(tmp.next.val > max.val )
+					{
+						prev = tmp;
+						max = tmp.next;
+					}
+					if (max == root)
+					{
+						root = root.next;
+					} 
+					else
+					{
+						prev.next = max.next; 	
+					}
+					max.next = tmpRoot;
+					tmpRoot = max;
+				}
+				root = tmpRoot;
+			}
+
+		}
+		
+		public void sortThroughListNODES() 
+		{
+//			Node[] ar;
+//		root ar[0];
+//				root = tmpRoot;
+			}
+
+
+		
 	@Override
 	public void revers() {
 
@@ -318,6 +378,39 @@ public class LList implements Elist
 		tmp.next = p;
 
 	}
+	// предусмотреть различные размеры листа и длину, учесть нечетный вариант
+	public void halfReversClass() {
+
+		int S = size();
+		if (S <= 1)
+		{
+			return;
+		}
+		Node p = null;
+		Node tmp = root;
+		Node tmp_root = root;
+		for (int i = 0; i < S / 2 - 1; i++)
+		{
+			tmp = tmp.next;
+		}
+		root = tmp.next;
+		tmp.next = p;
+		p = tmp_root;
+		if (S % 2 != 0)
+		{
+			tmp_root = root;
+			root = root.next;
+			tmp_root.next = p;
+			p = tmp_root;
+		}
+		tmp = root;
+		while (tmp.next != null)
+		{
+			tmp = tmp.next;
+		}
+		tmp.next = p;
+
+	}	
 
 	@Override
 	public int get(int pos) {
