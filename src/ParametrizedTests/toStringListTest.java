@@ -77,6 +77,14 @@ public class toStringListTest
 			assertEquals(expAlist, (act.toString()));
 		}
 	
+	@Test
+	public void  toStringLinkedList2 ()
+		{
+			Elist act = new LList2();
+			act.init(inputData);
+			assertEquals(expAlist, (act.toString()));
+		}
+	
 }
 
 

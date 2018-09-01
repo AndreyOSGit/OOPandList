@@ -78,6 +78,14 @@ public class MinListTest
 			 
 		   	assertEquals(exp, act.min());
 		}
+	@Test
+	public void MinLinkedList2 ()
+		{
+			Elist act = new LList2();
+			act.init(inputData);
+			 
+		   	assertEquals(exp, act.min());
+		}
 	
 }
 

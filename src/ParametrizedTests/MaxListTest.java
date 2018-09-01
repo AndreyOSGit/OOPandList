@@ -77,6 +77,14 @@ public class MaxListTest
 			 
 		   	assertEquals(exp, act.max());
 		}
+	@Test
+	public void MaxLinkedList2 ()
+		{
+			Elist act = new LList2();
+			act.init(inputData);
+			 
+		   	assertEquals(exp, act.max());
+		}
 	
 }
 

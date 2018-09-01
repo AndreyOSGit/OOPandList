@@ -82,6 +82,14 @@ public class SortListTest
 			act.sort();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
+	@Test
+	public void SortLinkedList2 ()
+		{
+			Elist act = new LList2();
+			act.init(inputData);
+			act.sort();
+		   	assertArrayEquals(expAlist, act.toArray());
+		}
 }
 
 

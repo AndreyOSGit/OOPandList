@@ -79,6 +79,15 @@ public class AddStartListTest
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 	
+	@Test
+	public void AddStartLinkedList2 ()
+	
+		{
+			Elist act = new LList2();
+			act.init(inputData);
+			act.addStart(val);
+		   	assertArrayEquals(expAlist, act.toArray());
+		}
 }
 
 

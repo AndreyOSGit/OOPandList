@@ -44,41 +44,49 @@ public class ReversListTest
 	// nugen init - для передачи массива and toArray - для возвращения результата
 	//
 	
-	@Test
-	public void ReversersArrayList0 ()
-	{
-	   	Elist act = new AList0();
-	   	act.init(inputData);
-	   	act.revers();
-	   	assertArrayEquals(expAlist, act.toArray());
-	}
-	
+	    @Test
+	    public void ReversersArrayList0 ()
+	    {
+	    	Elist act = new AList0();
+	    	act.init(inputData);
+	    	act.revers();
+	    	assertArrayEquals(expAlist, act.toArray());
+	    }
 
-	@Test
-	public void ReversArrayList1 ()
-		{
-			Elist act = new AList1();
-		   	act.init(inputData);
-			act.revers();
-		   	assertArrayEquals(expAlist, act.toArray());
-		}
-		
-	@Test
-	public void ReversArrayList2 ()
-		{
-			Elist act = new AList2();
-			act.init(inputData);
-		   	act.revers();
-		   	assertArrayEquals(expAlist, act.toArray());
-		}
-	@Test
-	public void ReversLinkedList1 ()
-		{
-			Elist act = new LList();
-			act.init(inputData);
-			act.revers();
-			assertArrayEquals(expAlist, act.toArray());
-		}
+
+	    @Test
+	    public void ReversArrayList1 ()
+	    {
+	    	Elist act = new AList1();
+	    	act.init(inputData);
+	    	act.revers();
+	    	assertArrayEquals(expAlist, act.toArray());
+	    }
+
+	    @Test
+	    public void ReversArrayList2 ()
+	    {
+	    	Elist act = new AList2();
+	    	act.init(inputData);
+	    	act.revers();
+	    	assertArrayEquals(expAlist, act.toArray());
+	    }
+	    @Test
+	    public void ReversLinkedList1 ()
+	    {
+	    	Elist act = new LList();
+	    	act.init(inputData);
+	    	act.revers();
+	    	assertArrayEquals(expAlist, act.toArray());
+	    }
+	    @Test
+	    public void ReversLinkedList2 ()
+	    {
+	    	Elist act = new LList2();
+	    	act.init(inputData);
+	    	act.revers();
+	    	assertArrayEquals(expAlist, act.toArray());
+	    }
 	
 }
 

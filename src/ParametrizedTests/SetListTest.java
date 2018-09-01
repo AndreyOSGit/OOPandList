@@ -81,6 +81,14 @@ public class SetListTest
 			act.set(pos,val);
 			assertArrayEquals(expAlist, act.toArray());
 		}
+	@Test
+	public void SetLinkedList2 ()
+		{
+			Elist act = new LList2();
+			act.init(inputData);
+			act.set(pos,val);
+			assertArrayEquals(expAlist, act.toArray());
+		}
 	
 }
 

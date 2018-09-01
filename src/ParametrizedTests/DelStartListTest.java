@@ -97,6 +97,15 @@ public class DelStartListTest
 		   	act.init(inputData);
 		    act.delStart();
 		}  
+	
+	@Test
+	public void DelStartLinkedList2 ()
+		{
+			Elist act = new LList2();
+			act.init(inputData);
+			act.delStart();
+		 	assertArrayEquals (expArr, act.toArray());
+		}
 }
 
 

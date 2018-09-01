@@ -79,6 +79,14 @@ public class ClearListTest
 		   	act.clear();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
+	@Test
+	public void ClearLinkedList2 ()
+		{
+			Elist act = new LList2();
+			act.init(inputData);
+		   	act.clear();
+		   	assertArrayEquals(expAlist, act.toArray());
+		}
 	
 	
 }

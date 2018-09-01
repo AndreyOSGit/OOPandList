@@ -77,6 +77,14 @@ public class HalfReversListTest
 		   	act.halfRevers();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
+	@Test
+	public void HalfReversLinkedList2 ()
+		{
+			Elist act = new LList2();
+			act.init(inputData);
+		   	act.halfRevers();
+		   	assertArrayEquals(expAlist, act.toArray());
+		}
 	
 }
 

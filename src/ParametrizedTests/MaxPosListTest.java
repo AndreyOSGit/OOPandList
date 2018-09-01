@@ -79,6 +79,14 @@ public class MaxPosListTest
 			act.maxPos();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
+	@Test
+	public void MaxPosLinkedList2 ()
+		{
+			Elist act = new LList2();
+			act.init(inputData);
+			act.maxPos();
+		   	assertArrayEquals(expAlist, act.toArray());
+		}
 	
 }
 

@@ -79,6 +79,14 @@ public class MinPosListTest
 			act.minPos();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
+	@Test
+	public void MinPosLinkedList2 ()
+		{
+			Elist act = new LList2();
+			act.init(inputData);
+			act.minPos();
+		   	assertArrayEquals(expAlist, act.toArray());
+		}
 	
 }
 

@@ -77,6 +77,14 @@ public class DelEndListTest
 			act.delEnd();
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
+	@Test
+	public void DelEndLinkedList21 ()
+		{
+			Elist act = new LList2();
+			act.init(inputData);
+			act.delEnd();
+		   	assertArrayEquals(expAlist, act.toArray());
+		}
 	
 }
 

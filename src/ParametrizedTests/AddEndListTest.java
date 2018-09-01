@@ -80,4 +80,12 @@ public class AddEndListTest
 			act.addStart(val);
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
+	@Test
+	public void AddEndLinkedList2 ()
+		{
+			Elist act = new LList2();
+			act.init(inputData);
+			act.addStart(val);
+		   	assertArrayEquals(expAlist, act.toArray());
+		}
 }

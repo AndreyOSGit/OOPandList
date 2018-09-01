@@ -79,6 +79,13 @@ public class GetListTest
 			act.init(inputData);
 		   	assertEquals(expElement, act.get(pos));
 		}
+	@Test
+	public void GetLinkedList2 ()
+		{
+			Elist act = new LList2();
+			act.init(inputData);
+		   	assertEquals(expElement, act.get(pos));
+		}
 	
 }
 

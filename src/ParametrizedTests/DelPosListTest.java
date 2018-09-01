@@ -77,6 +77,13 @@ public class DelPosListTest
 		   	assertArrayEquals(expAlist, act.toArray());
 		}
 	
+	@Test
+	public void delPosLinkedList2 ()
+		{
+			Elist act = new LList2();
+			act.delPos(pos);
+		   	assertArrayEquals(expAlist, act.toArray());
+		}
 }
 
 

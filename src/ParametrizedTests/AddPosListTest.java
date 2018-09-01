@@ -84,6 +84,14 @@ public class AddPosListTest
 			act.addPos(pos, val);
 			assertArrayEquals(expArray, act.toArray());
 		}
+	@Test
+	public void addPosLinkedList2 ()
+		{
+			Elist act = new LList2();
+			act.init(inputData);
+			act.addPos(pos, val);
+			assertArrayEquals(expArray, act.toArray());
+		}
 }
 
 
